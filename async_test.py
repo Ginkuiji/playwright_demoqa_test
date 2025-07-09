@@ -8,13 +8,13 @@ async def run():
         page = await browser.new_page()
         await page.goto("https://demoqa.com/text-box")
 
-        await page.fill("#userName", "Вася")
+        await page.fill("#userName", "Nobody")
         await page.fill("#userEmail", "mail@mail.com")
         await page.fill("#currentAddress", "here")
         await page.fill("#permanentAddress", "nowhere")
         await page.click("#submit")
 
-        await expect(page.locator("#output")).to_contain_text("Вася")
+        await expect(page.locator("#output")).to_contain_text("Nobody")
 
         await page.screenshot(path="text_box.png", full_page=True)
 
